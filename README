@@ -1,0 +1,25 @@
+Copyright (c) 2011 Daneel S. Yaitskov <rtfm.rtfm.rtfm@gmail.com.>. 
+
+All rights reserved.
+This program is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself.
+
+turbo-ftp-sync - a script moves changes of files and folders of a local
+machine to a remote one via FTP very fast with minimum network traffic.
+
+The script synchronizes files and folder on an FTP server with local ones via
+usual FTP protocol. The advantage of this script over usual FTP client is it
+doesn't upload all data every time but only once. 
+
+Its secret is that it doesn't ask a FTP server about last modification date and
+current size of each file. These information is stored in local SQLite db.
+Therefore this program doesn't explore folder tree of a remote host. It acts
+blindly. You can interrupt a process of this program in any time and you will
+not lose changes which you already uploaded.
+
+The program can move changes only one direction from a local machine to remote
+one. If a file was changed on a remote machine and a local one then the program
+overwrite the remove version of the file by the local one.
+
+turbo-ftp-sync.pl is based on sources of ftpsync.pl program.
+Christoph Lechleitner is the initial author of ftpsync.pl (ftpsync@ibcl.at)
